@@ -1,0 +1,31 @@
+packages:
+   tensorflow
+   tensorflow-core-ops
+   tensorflow-logging
+   tensorflow-opgen
+   tensorflow-ops
+   tensorflow-proto
+   tensorflow-mnist
+   tensorflow-mnist-input-data
+   tensorflow-records
+   tensorflow-records-conduit
+   tensorflow-test
+
+-- For MacOS we have to include separate directories
+extra-lib-dirs: /opt/homebrew/opt/tensorflow/lib
+extra-include-dirs:  /opt/homebrew/opt/tensorflow/include
+
+-- For MacOS we have to include separate directories
+package snappy
+        extra-include-dirs: /opt/homebrew/opt/snappy/include
+        extra-lib-dirs: /opt/homebrew/opt/snappy/lib
+
+-- TODO: To allow build with newer bytestring (and to be compatible with newer compilers)
+-- we have to rely on 3rd-party fork
+source-repository-package
+    type: git
+    location: https://github.com/andrewthad/snappy.git
+    tag: 8687802c0b85ed7fbbb1b1945a75f14fb9a9c886
+
+-- See thread for more details: https://github.com/visq/language-c/pull/89#issuecomment-1339434618
+allow-newer: c2hs:language-c

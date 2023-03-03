@@ -29,13 +29,14 @@ library
                   , TensorFlow.Core
                   , TensorFlow.Internal.FFI
                   , TensorFlow.Internal.VarInt
+                  , TensorFlow.Internal.Raw
                   , TensorFlow.Nodes
                   , TensorFlow.Output
                   , TensorFlow.Session
                   , TensorFlow.Tensor
                   , TensorFlow.Types
   autogen-modules:  TensorFlow.Internal.Raw
-  build-tool-depends: c2hs:c2hs
+  build-tool-depends: c2hs:c2hs >= 0.28
   build-depends:  proto-lens == 0.7.*
                 , tensorflow-proto == 0.3.*
                 , base >= 4.7 && < 5
@@ -64,6 +65,8 @@ library
     -- manually.  Alternately, users can run `xcode-select --install` to add
     -- it permanently to their search path.
     extra-lib-dirs: /usr/local/lib
+    -- https://github.com/visq/language-c/pull/89#issuecomment-1339434618
+    cc-options: -D__uint128_t=int
   }
 
 Test-Suite FFITest
