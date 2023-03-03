@@ -29,12 +29,12 @@ library
                   , TensorFlow.Core
                   , TensorFlow.Internal.FFI
                   , TensorFlow.Internal.VarInt
-                  , TensorFlow.Internal.Raw
                   , TensorFlow.Nodes
                   , TensorFlow.Output
                   , TensorFlow.Session
                   , TensorFlow.Tensor
                   , TensorFlow.Types
+  other-modules:  TensorFlow.Internal.Raw
   autogen-modules:  TensorFlow.Internal.Raw
   build-tool-depends: c2hs:c2hs >= 0.28
   build-depends:  proto-lens == 0.7.*
